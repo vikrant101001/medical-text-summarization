@@ -11,10 +11,10 @@ def summarize(prompt):
     )["choices"][0]["text"]
  
 def questiongenerate(prompt):
-    prompt = "Generate questions based on the following text:\n" + text + "\n\n1. "
+    augmentedb_prompt = "Generate questions based on the following text:\n" + prompt + "\n\n1. "
     completions = openai.Completion.create(
         engine="text-davinci-003",
-        prompt=prompt,
+        prompt=augmentedb_prompt,
         max_tokens=1024,
         n=10,
         stop=None,
