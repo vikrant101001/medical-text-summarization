@@ -31,4 +31,4 @@ st.button(
 
 
 summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
-questions_field = st.text_area(label="questions:", value=questions, height=100)
+questions_field = st.text_area(label="questions:", value=st.session_state["questions"], height=100)
