@@ -51,7 +51,7 @@ st.button(
 )
 st.button(
     "Submit for GPT 3-question generation",
-    on_click=questiongenerate(input_text),
+    on_click=generate_questions(input_text),
 )
 
 
