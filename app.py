@@ -10,10 +10,8 @@ if "summary" not in st.session_state:
     st.session_state["summary"] = ""
 
     
-if "questions" not in st.session_state:
-    st.session_state["questions"] = ""
 
-questions = ""
+questions = []
 def generate_questions(text):
     prompt = "Generate questions based on the following text:\n" + text + "\n\n1. "
     completions = openai.Completion.create(
