@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import os
 from text_summarizer.functions import summarize
-from text_summarizer.functions import questiongenerate
+
 
 openai.api_key = os.getenv('OPENAI_KEY')
 
@@ -12,6 +12,28 @@ if "summary" not in st.session_state:
     
 if "questions" not in st.session_state:
     st.session_state["questions"] = ""
+
+questions = ""
+def generate_questions(text):
+    prompt = "Generate questions based on the following text:\n" + text + "\n\n1. "
+    completions = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=1024,
+        n=10,
+        stop=None,
+        temperature=0.5,
+    )
+
+    questions = []
+    for choice in completions.choices:
+        question = choice.text.strip()
+        if question:
+            questions.append(question)
+
+    return questions
+
+    
     
 st.title("Medical Text Summarizer")
 
@@ -30,9 +52,9 @@ st.button(
 st.button(
     "Submit for GPT 3-question generation",
     on_click=questiongenerate,
-    kwargs={"prompt": input_text},
+    kwargs={"text": input_text},
 )
 
 
 summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
-questions_field = st.text_area(label="questions:", value=st.session_state["questions"], height=100)
+questions_field = st.text_area(label="questions:", value = questions, height=100)
