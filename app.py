@@ -30,4 +30,5 @@ st.button(
 )
 
 
-output_text = st.text_area(label="Results:", value=st.session_state["summary"], height=250)
+summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
+questions_field = st.text_area(label="questions:", value=questions, height=100)
