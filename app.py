@@ -9,6 +9,10 @@ openai.api_key = os.getenv('OPENAI_KEY')
 if "summary" not in st.session_state:
     st.session_state["summary"] = ""
 
+    
+if "questions" not in st.session_state:
+    st.session_state["questions"] = ""
+    
 st.title("Medical Text Summarizer")
 
 input_text = st.text_area(label="Enter full text:", value="", height=250)
