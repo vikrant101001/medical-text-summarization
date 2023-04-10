@@ -23,8 +23,8 @@ st.button(
     kwargs={"prompt": input_text},
 )
 st.button(
-    "Submit for BioGPT-question generation",
-    on_click=summarize,
+    "Submit for GPT 3-question generation",
+    on_click=questiongenerate,
     kwargs={"prompt": input_text},
 )
 
