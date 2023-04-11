@@ -9,8 +9,10 @@ openai.api_key = os.getenv('OPENAI_KEY')
 if "summary" not in st.session_state:
     st.session_state["summary"] = ""
 
+if "pr" not in st.session_state:
+    st.session_state["pr"] = ""
     
-pr = ""
+
 def promp():
     pr = "Generate a medical based summary of the above text"
 
@@ -56,6 +58,6 @@ st.button(
     on_click=generate_questions(input_text),
 )
 
-Prompt_field = st.text_area(label="Prompt:", value=pr, height=100)
+Prompt_field = st.text_area(label="Prompt:", value=st.session_state["pr"], height=100)
 summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
 questions_field = st.text_area(label="questions:", value = questions, height=100)
