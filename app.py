@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import os
 from text_summarizer.functions import summarize
-from text_summarizer.functions import promp
+from text_summarizer.functions import findkeypoints
 
 openai.api_key = os.getenv('OPENAI_KEY')
 
@@ -11,6 +11,8 @@ if "summary" not in st.session_state:
 
 if "pr" not in st.session_state:
     st.session_state["pr"] = ""
+if "keypoints" not in st.session_state:
+    st.session_state["keypoints"] = ""
     
 
 
@@ -47,7 +49,8 @@ st.button(
 )
 st.button(
     "Submit for BioGPT-summarization",
-    on_click=promp,
+    on_click=findkeypoints,
+    kwargs={"prompt": input_text},
 )
 st.button(
     "Submit for GPT 3-question generation",
@@ -56,4 +59,5 @@ st.button(
 
 Prompt_field = st.text_area(label="Prompt:", value=st.session_state["pr"], height=100)
 summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
+keypoints = st.text_area(label="Summary:", value=st.session_state["keypoints"], height=100)
 questions_field = st.text_area(label="questions:", value = questions, height=100)
