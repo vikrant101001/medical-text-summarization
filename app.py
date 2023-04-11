@@ -43,17 +43,17 @@ st.title("Medical Text Summarizer")
 input_text = st.text_area(label="Enter full text:", value="", height=250)
 
 st.button(
-    "Submit for GPT 3-summarization",
+    "Medical Summary",
     on_click=summarize,
     kwargs={"prompt": input_text},
 )
 st.button(
-    "Submit for BioGPT-summarization",
+    "Key points",
     on_click=findkeypoints,
     kwargs={"prompt": input_text},
 )
 st.button(
-    "Submit for GPT 3-question generation",
+    "question generation",
     on_click=generate_questions(input_text),
 )
 
