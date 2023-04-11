@@ -10,7 +10,7 @@ if "summary" not in st.session_state:
     st.session_state["summary"] = ""
 
     
-
+pr = ""
 questions = []
 def generate_questions(text):
     prompt = "Generate questions based on the following text:\n" + text + "\n\n1. "
@@ -41,6 +41,7 @@ st.button(
     "Submit for GPT 3-summarization",
     on_click=summarize,
     kwargs={"prompt": input_text},
+    pr = "Generate a medical based summary of the above text",
 )
 st.button(
     "Submit for BioGPT-summarization",
@@ -50,8 +51,9 @@ st.button(
 st.button(
     "Submit for GPT 3-question generation",
     on_click=generate_questions(input_text),
+    pr = "Generate questions based on the above text",
 )
 
-
+Prompt_field = st.text_area(label="Prompt:", value=pr, height=100)
 summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
 questions_field = st.text_area(label="questions:", value = questions, height=100)
