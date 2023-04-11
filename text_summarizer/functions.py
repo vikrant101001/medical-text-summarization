@@ -10,6 +10,14 @@ def summarize(prompt):
         temperature=.5,
         max_tokens=1000,
     )["choices"][0]["text"]
- 
-def promp():
-    st.session_state["pr"]="HI"
+
+def findkeypoints(prompt):
+    augmented_prompt = f"Find key points from this text: {prompt}"
+    st.session_state["pr"]="Find key points from this text"
+    st.session_state["keypoints"] = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=augmented_prompt,
+        temperature=.5,
+        max_tokens=1000,
+    )["choices"][0]["text"]
+    
