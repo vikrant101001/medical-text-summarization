@@ -59,5 +59,5 @@ st.button(
 
 Prompt_field = st.text_area(label="Prompt:", value=st.session_state["pr"], height=100)
 summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=100)
-keypoints = st.text_area(label="Summary:", value=st.session_state["keypoints"], height=100)
+keypoints = st.text_area(label="Key Points:", value=st.session_state["keypoints"], height=100)
 questions_field = st.text_area(label="questions:", value = questions, height=100)
