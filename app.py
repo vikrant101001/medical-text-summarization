@@ -11,7 +11,7 @@ if "summary" not in st.session_state:
 
     
 pr = ""
-def promp:
+def promp():
     pr = "Generate a medical based summary of the above text"
 
 
