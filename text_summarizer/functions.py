@@ -21,3 +21,12 @@ def findkeypoints(prompt):
         max_tokens=1000,
     )["choices"][0]["text"]
     
+def generatequestions(prompt):
+    augmented_prompt = f"Generate 5 follow-up questions from this text: {prompt}"
+    st.session_state["pr"]="Generate 5 follow-up questions from this text"
+    st.session_state["questions"] = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=augmented_prompt,
+        temperature=.5,
+        max_tokens=1000,
+    )["choices"][0]["text"]
