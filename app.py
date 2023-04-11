@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import os
 from text_summarizer.functions import summarize
-
+from text_summarizer.functions import promp
 
 openai.api_key = os.getenv('OPENAI_KEY')
 
@@ -12,9 +12,6 @@ if "summary" not in st.session_state:
 if "pr" not in st.session_state:
     st.session_state["pr"] = ""
     
-
-def promp():
-    pr = "Generate a medical based summary of the above text"
 
 
 questions = []
