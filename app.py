@@ -49,7 +49,14 @@ with col3:
         kwargs={"prompt": input_text},
     )
 
+   
 Prompt_field = st.text_area(label="Prompt:", value=st.session_state["pr"], height=100)
-summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=200)
-keypoints = st.text_area(label="Key Points:", value=st.session_state["keypoints"], height=200)
-questions = st.text_area(label="questions:", value = st.session_state["questions"], height=200)
+
+res1, res2, res3 = st.columns(3)
+
+with res1:
+    summary = st.text_area(label="Summary:", value=st.session_state["summary"], height=200)
+with res2:
+    keypoints = st.text_area(label="Key Points:", value=st.session_state["keypoints"], height=200)
+with res3:
+    questions = st.text_area(label="questions:", value = st.session_state["questions"], height=200)
