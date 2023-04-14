@@ -6,6 +6,8 @@ from text_summarizer.functions import findkeypoints
 from text_summarizer.functions import generatequestions
 
 st.set_page_config(layout="wide")
+st.set_page_config(page_title="GPT-3 Clinical Webapp")
+
 
 openai.api_key = os.getenv('OPENAI_KEY')
 
