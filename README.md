@@ -5,5 +5,7 @@ Model: text-davinci-003
 ## Existing Working
 Can summarize medical paragraphs into smaller ones taking the important points
 
-## To add
-To summarize medical data found from Synthea Datasets into small paragraphs
+## Prompts
+1. Get a medical based summary of this text
+2. Find key points from this text
+3. Generate 5 follow-up questions from this text
