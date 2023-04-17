@@ -23,7 +23,7 @@ if "questions" not in st.session_state:
 
     
     
-st.title("Medical Text Summarizer")
+st.title("GPT-3 Clinical Webapp")
 
 input_text = st.text_area(label="Enter full text:", value="", height=250)
 
